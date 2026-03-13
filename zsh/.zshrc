@@ -27,6 +27,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Go
+export GOPATH=$HOME/golang
+export PATH=$PATH:$GOPATH/bin
+
 tmux-dev() {
     local session_name="${1:-dev}"
 
