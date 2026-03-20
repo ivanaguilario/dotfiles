@@ -6,8 +6,10 @@ return {
 	"nvimdev/guard-collection",
     },
     config = function()
-        local ft = require('guard.filetype')
-	ft('c'):fmt('clang-format')
+	local ft = require("guard.filetype")
+	if vim.fn.executable("clang-format") == 1 then
+		ft("c"):fmt("clang-format")
+	end
     end,
   }
 }
