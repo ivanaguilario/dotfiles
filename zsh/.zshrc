@@ -31,6 +31,10 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/golang
 export PATH=$PATH:$GOPATH/bin
 
+if [ -f "$HOME/.config/opencode/opencode.local.json" ]; then
+    export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.local.json"
+fi
+
 tmux-dev() {
     local session_name="${1:-dev}"
 

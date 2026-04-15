@@ -17,6 +17,8 @@
 !opencode/
 opencode/*
 !opencode/AGENTS.md
+!opencode/opencode.json
+opencode/opencode.local.json
 
 !VSCodium/
 !VSCodium/User/
