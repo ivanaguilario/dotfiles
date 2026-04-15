@@ -14,6 +14,10 @@
 !tmuxinator/
 !tmuxinator/**
 
+!opencode/
+opencode/*
+!opencode/AGENTS.md
+
 !VSCodium/
 !VSCodium/User/
 !VSCodium/User/settings.json
