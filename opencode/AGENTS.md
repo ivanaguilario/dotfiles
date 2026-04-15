@@ -22,6 +22,11 @@
 - Always create branches from updated main when starting a work session.
 - Branch names should be prefixed with chore/, feat/ or fix/ depending on the work we're doing.
 
+# Pull Requests
+- When asked to open a PR, write a detailed PR description that clearly explains the change, impact, and validation.
+- Include a final line in the PR description in the format: Built with <model name>.
+- Use the actual model name used for the work, for example: OpenAI ChatGPT 5.4 or Claude Opus 4.
+
 # Observability
 - When designing dashboards, always run the queries you will use for panels to verify data is correct.
 - When proposing dashboards or alerts, prefer queries that can be validated against live data first.
