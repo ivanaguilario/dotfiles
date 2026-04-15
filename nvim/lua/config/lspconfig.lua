@@ -1,5 +1,23 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf }
+
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<leader>fm", function()
+      vim.lsp.buf.format({ async = true })
+    end, opts)
+  end,
+})
+
 local function configure(name, opts)
   local base = vim.lsp.config[name]
   if type(base) ~= "table" then
@@ -28,7 +46,20 @@ configure("clangd", {
 })
 enable_if("clangd", "clangd")
 
-configure("gopls", { capabilities = capabilities })
+configure("gopls", {
+  capabilities = capabilities,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      completeUnimported = true,
+      gofumpt = true,
+      staticcheck = true,
+      usePlaceholders = true,
+    },
+  },
+})
 enable_if("gopls", "gopls")
 
 configure("ts_ls", { capabilities = capabilities })
