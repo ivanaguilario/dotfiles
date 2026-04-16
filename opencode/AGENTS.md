@@ -24,7 +24,7 @@
 
 # Pull Requests
 - When asked to open a PR, write a detailed PR description that clearly explains the change, impact, and validation.
-- Include a final line in the PR description in the format: Built with <model name>.
+- Include a final line in the PR description in the format: Built with 🤖 <model name>.
 - Use the actual model name used for the work, for example: OpenAI ChatGPT 5.4 or Claude Opus 4.
 
 # Observability
