@@ -15,6 +15,10 @@
 - NEVER read Kubernetes secrets.
 - NEVER apply manifests, install / update helm releases, etc. without confirmation.
 
+# Terraform / OpenTofu / Pulumi
+- NEVER plan or apply infrastructure changes unless explicitly allowed.
+- NEVER read state files of any kind unless explicitly allowed.
+
 # Git
 - Never commit any work.
 - Never push, force-push, rebase, or amend commits unless explicitly requested.
