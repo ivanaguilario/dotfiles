@@ -9,6 +9,8 @@
 - Do not modify generated files or lockfiles unless the task requires it.
 - After making changes, run the smallest relevant verification step available.
 - If verification cannot be run, state that clearly.
+- Always check the current workspace before asking to check outside it.
+- Never attempt to check outside the current workspace unless explicitly told to.
 - Ask before performing destructive, external, or high-impact actions.
 
 # Kubernetes
