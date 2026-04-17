@@ -20,6 +20,7 @@ Personal configuration files for tools in this repo.
 | Normal | `<leader>fg` | Telescope live grep | |
 | Normal | `<C-p>` | Telescope git files | |
 | Normal | `<leader>lg` | Open LazyGit | |
+| Normal | `<leader>mp` | Toggle markdown rendering | render-markdown.nvim |
 | Normal | `gd` | Go to definition | LSP buffer-local |
 | Normal | `gr` | List references | LSP buffer-local |
 | Normal | `K` | Hover documentation | LSP buffer-local |
