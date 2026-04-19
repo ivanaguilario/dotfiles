@@ -16,6 +16,7 @@
 # Kubernetes
 - NEVER read Kubernetes secrets.
 - NEVER apply manifests, install / update helm releases, etc. without confirmation.
+- When modifying Helm values files, ALWAYS check the actual chart to verify the values and keys are correct.
 
 # Terraform / OpenTofu / Pulumi
 - NEVER plan or apply infrastructure changes unless explicitly allowed.
