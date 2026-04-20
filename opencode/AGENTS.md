@@ -29,6 +29,15 @@
 - Always create branches from updated main when starting a work session.
 - Branch names should be prefixed with chore/, feat/ or fix/ depending on the work we're doing.
 
+# Delegation
+- When delegating to a specialized subagent whose output format is part of the task, preserve that output verbatim.
+- For `video-normalizer` and `music-normalizer`, do not summarize, paraphrase, or rewrite the subagent's final response.
+- Do not convert subagent Markdown tables into bullets.
+- Do not collapse fenced code blocks from subagent output.
+- Return the subagent's final response body unchanged.
+- If additional context is necessary, add at most one short line before the raw subagent output.
+- If a subagent is explicitly instructed to produce a table, checklist, command block, or other structured format, preserve that structure in the final user-visible response.
+
 # Pull Requests
 - When asked to open a PR, use this common structure in the PR description:
 - `## Summary`
