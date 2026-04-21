@@ -44,7 +44,7 @@
 - `## Why`
 - `## Risks / Rollout`
 - Under `Risks / Rollout`, call out any risks, operational impact, migration steps, or rollout notes. If there are none, say `None`.
-- Include a final line in the PR description in the format: `Built with <model name>`.
+- Include a final line in the PR description in the format: `Built with 🤖 <model name>`.
 - Use the actual model name used for the work, for example: `ChatGPT 5.4` or `Claude Opus 4`.
 
 # Observability
