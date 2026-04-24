@@ -21,7 +21,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ls='eza -l --icons=auto --group-directories-first --git --header'
 alias lt='eza -l --icons=auto --group-directories-first --git --header --tree --level=10'
-alias ws-reset='$HOME/.config/scripts/workspace-reset.sh'
+alias ws-reset='$HOME/.config/.scripts/workspace-reset.sh'
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

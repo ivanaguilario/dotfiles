@@ -36,8 +36,5 @@ opencode/opencode.local.json
 !wallpapers/
 !wallpapers/**
 
-!scripts/
-!scripts/**
-
 !zsh/
 !zsh/**
