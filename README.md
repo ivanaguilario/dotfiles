@@ -2,6 +2,20 @@
 
 Personal configuration files for tools in this repo.
 
+This repo is intended for macOS only.
+
+## Setup
+
+Run `.scripts/setup.sh` to install the repo-managed GPG agent config for signed commits.
+
+The script:
+
+- symlinks `gnupg/gpg-agent.conf` to `~/.gnupg/gpg-agent.conf`
+- creates `~/.gnupg` with the correct permissions if needed
+- reloads `gpg-agent`
+
+It expects `pinentry-mac` to be installed and configures GPG to use it.
+
 ## Nvim
 
 ### Prefixes
