@@ -20,6 +20,25 @@ Personal configuration files for tools in this repo.
 | Normal | `<leader>fg` | Telescope live grep | |
 | Normal | `<C-p>` | Telescope git files | |
 
+### File Explorer
+
+The file explorer in this config is `netrw`, opened with `<leader>pv`.
+
+| Mode | Key | Action | Notes |
+| --- | --- | --- | --- |
+| netrw | `<CR>` | Open file or enter directory | Standard netrw |
+| netrw | `-` | Go to parent directory | Standard netrw |
+| netrw | `R` | Rename file or directory | Standard netrw |
+| netrw | `D` | Delete file or directory | Standard netrw |
+| netrw | `%` | Create new file | Standard netrw |
+| netrw | `d` | Create new directory | Standard netrw |
+| netrw | `mf` | Mark file | Standard netrw |
+| netrw | `mc` | Copy marked files | Standard netrw |
+| netrw | `mm` | Move marked files | Standard netrw |
+| netrw | `mx` | Run shell command on marked files | Standard netrw |
+| netrw | `gh` | Toggle hidden files | Standard netrw |
+| netrw | `q` | Close explorer window | Standard netrw |
+
 ### In-File Navigation
 
 | Mode | Key | Action | Notes |
