@@ -38,15 +38,6 @@
 - If additional context is necessary, add at most one short line before the raw subagent output.
 - If a subagent is explicitly instructed to produce a table, checklist, command block, or other structured format, preserve that structure in the final user-visible response.
 
-# Pull Requests
-- When asked to open a PR, use this common structure in the PR description:
-- `## Summary`
-- `## Why`
-- `## Risks / Rollout`
-- Under `Risks / Rollout`, call out any risks, operational impact, migration steps, or rollout notes. If there are none, say `None`.
-- Include a final line in the PR description in the format: `Built with 🤖 <model name>`.
-- Use the actual model name used for the work, for example: `ChatGPT 5.4` or `Claude Opus 4`.
-
 # Observability
 - When designing dashboards, always run the queries you will use for panels to verify data is correct.
 - When proposing dashboards or alerts, prefer queries that can be validated against live data first.
