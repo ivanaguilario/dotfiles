@@ -139,7 +139,7 @@ The PR description must use this exact section structure:
 
 ## Risks / Rollout
 
-Built with 🤖 ChatGPT 5.4
+Built with 🤖 <actual runtime model name> via <actual tool name>
 ```
 
 Additional rules:
@@ -155,7 +155,11 @@ Additional rules:
   - Call out risks, migrations, rollout concerns, operational impact, or reviewer caution points.
   - If there are no meaningful risks or rollout notes, write `None`.
 - Final line:
-  - Always end with `Built with 🤖 ChatGPT 5.4`
+  - Always end with `Built with 🤖 <actual runtime model name> via <actual tool name>`.
+  - Use the real current model name from system context, exactly as provided there.
+  - Use the real current tool name from system context, exactly as provided there.
+  - Do not substitute a generic product name like `ChatGPT` or hardcode a version.
+  - Do not hardcode a tool name; use the actual tool in use, such as `OpenCode` or `Claude Code`.
 
 Do not invent motivations, risks, or rollout notes that are not supported by the branch contents or user context.
 
@@ -252,7 +256,7 @@ When previewing, use this structure:
 ## Risks / Rollout
 None
 
-Built with 🤖 ChatGPT 5.4
+Built with 🤖 <actual runtime model name> via <actual tool name>
 ```
 
 ## Open Questions

@@ -12,6 +12,8 @@
 - Always check the current workspace before asking to check outside it.
 - Never attempt to check outside the current workspace unless explicitly told to.
 - Ask before performing destructive, external, or high-impact actions.
+- Always use an available skill when the task matches it.
+- Always use skills when possible.
 
 # Kubernetes
 - NEVER read Kubernetes secrets.
