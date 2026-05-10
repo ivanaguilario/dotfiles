@@ -12,8 +12,8 @@
 - Always check the current workspace before asking to check outside it.
 - Never attempt to check outside the current workspace unless explicitly told to.
 - Ask before performing destructive, external, or high-impact actions.
+- Always search for applicable skills when planning and doing work.
 - Always use an available skill when the task matches it.
-- Always use skills when possible.
 - Reply in english ONLY
 
 # Kubernetes
@@ -32,7 +32,7 @@
 - Never rely on memory for AWS behavior, resource availability, service APIs, IAM actions, CloudFormation/CDK properties, or configuration examples; verify with aws-knowledge first.
 
 # Git
-- Never commit any work.
+- Never commit unless explicitly told to.
 - Never push, force-push, rebase, or amend commits unless explicitly requested.
 - Do not revert user changes you did not make.
 - Always create branches from updated main when starting a work session.
