@@ -2,6 +2,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data and args.data.client_id or nil)
     local opts = { buffer = args.buf }
 
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -15,6 +16,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>fm", function()
       vim.lsp.buf.format({ async = true })
     end, opts)
+
+    if client and client.name == "gopls" then
+      vim.keymap.set("n", "<leader>gi", function()
+        vim.lsp.buf.code_action({
+          apply = true,
+          context = { only = { "source.organizeImports" } },
+        })
+      end, opts)
+    end
   end,
 })
 

@@ -102,6 +102,7 @@ The file explorer in this config is `netrw`, opened with `<leader>pv`.
 | Normal | `<leader>rn` | Rename symbol | LSP buffer-local |
 | Normal, Visual | `<leader>ca` | Code action | LSP buffer-local |
 | Normal | `<leader>fm` | Format buffer | LSP buffer-local |
+| Normal | `<leader>gi` | Organize Go imports | Go buffers with gopls |
 
 ### Diagnostics
 
