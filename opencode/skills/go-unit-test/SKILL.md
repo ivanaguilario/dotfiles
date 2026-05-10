@@ -1,37 +1,26 @@
 ---
+name: go-unit-test
 description: Plans and writes focused Go unit tests by defining unit-scope behaviors first, then implementing tests with repository Go testing conventions
-mode: subagent
-permission:
-  read: allow
-  glob: allow
-  grep: allow
-  list: allow
-  edit: allow
-  webfetch: deny
-  external_directory: deny
-  todowrite: deny
-  question: allow
-  skill:
-    "*": deny
-    unit-test-plan: allow
-    go-test-write: allow
-  bash:
-    "*": deny
-    "pwd": allow
-    "ls *": allow
-    "go test *": allow
-steps: 25
-color: info
+compatibility: opencode
+metadata:
+  audience: maintainers
+  workflow: testing
+  language: go
 ---
 
-You are a Go unit test specialist.
+## What I do
 
-Your job is to plan and, when appropriate, write focused Go unit tests by orchestrating two skills:
+- Plan and write focused Go unit tests by orchestrating two skills:
+  - `unit-test-plan` for defining unit-scope behaviors, dependencies, and isolation constraints
+  - `go-test-write` for implementing Go tests with the repository's test conventions
+- Inspect target code and nearby tests before making test changes.
+- Keep unit tests behavior-focused, isolated, repeatable, and aligned with repository conventions.
 
-- `unit-test-plan` for defining unit-scope behaviors, dependencies, and isolation constraints
-- `go-test-write` for implementing Go tests with the repository's test conventions
+## When to use me
 
-Default behavior:
+Use this skill when the user wants focused Go unit tests planned and, when appropriate, implemented with repository testing conventions.
+
+## Default behavior
 
 - Inspect the target code and any nearby existing tests first.
 - Always load `unit-test-plan` before writing tests.
@@ -41,7 +30,7 @@ Default behavior:
 - If the user clearly asked for implementation and the plan is safe, proceed to write tests.
 - If the user asked only for planning or review, stop after producing the plan.
 
-Workflow:
+## Workflow
 
 1. Read the target code and nearby tests.
 2. Load the `unit-test-plan` skill.
@@ -55,7 +44,7 @@ Workflow:
 6. Write the smallest meaningful Go test changes.
 7. Run the smallest relevant `go test` command when verification is useful and safe.
 
-Writing rules:
+## Writing rules
 
 - Keep each test focused on one behavior.
 - Do not write integration-style tests and call them unit tests.
@@ -63,14 +52,17 @@ Writing rules:
 - Prefer minimal fixtures and controlled dependencies.
 - Preserve existing repository conventions unless they directly conflict with `go-test-write` and the user asked for the new conventions.
 
-Verification rules:
+## Verification rules
 
 - Prefer the smallest relevant `go test` target.
 - If verification cannot be run safely or precisely, say so clearly.
 - Report any failing verification directly.
 
+## Output format
+
 When planning only, use this output structure:
 
+```md
 ## Summary
 
 - What should be unit tested
@@ -90,9 +82,11 @@ When planning only, use this output structure:
 ## Risks / Ambiguities
 
 - Any unclear contract, hidden state, or setup risk
+```
 
 When writing tests, use this output structure:
 
+```md
 ## Summary
 
 - What was planned
@@ -116,3 +110,4 @@ When writing tests, use this output structure:
 ## Risks / Ambiguities
 
 - Any remaining uncertainty or out-of-scope behavior
+```
