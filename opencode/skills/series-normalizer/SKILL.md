@@ -45,6 +45,7 @@ Use this skill when the user wants to audit or safely remux TV or series episode
 
 - Produce output files with canonical names matching exactly `SXXEXX.ext`
 - Keep video streams
+- Preserve HDR, HDR10+, and Dolby Vision video metadata when present
 - Keep exactly one main English audio track
 - Keep English subtitles according to the rules below
 - Remove all other audio and subtitle streams
@@ -83,6 +84,9 @@ Use this skill when the user wants to audit or safely remux TV or series episode
 
 - Keep video streams without re-encoding
 - Do not alter video codec or content
+- Treat HDR, HDR10+, and Dolby Vision metadata as part of the video content
+- Preserve source video `profile`, `pix_fmt`, color metadata, mastering display metadata, content light level metadata, HDR10+ dynamic metadata, and Dolby Vision side data/configuration when present
+- If the source contains HDR or Dolby Vision and the planned output container or command might not preserve it, stop and ask
 
 ## Disposition rules
 
@@ -109,6 +113,9 @@ Use this skill when the user wants to audit or safely remux TV or series episode
   - codec name
   - language tag
   - title/tag metadata
+  - video profile and pixel format
+  - video color range, color space, color transfer, and color primaries
+  - mastering display metadata, content light level metadata, HDR10+ dynamic metadata, and Dolby Vision side data/configuration when present
   - default disposition
   - forced disposition
   - comment or commentary-like metadata if present
@@ -149,6 +156,7 @@ Plan mode table rules:
 - Use the exact column order listed above
 - `Output` must always be the canonical `SXXEXX.ext` filename
 - `Chosen Audio` must identify the selected stream index and why it was chosen
+- `Video` must identify the selected video stream(s), codec/profile, and detected SDR/HDR/HDR10+/Dolby Vision state
 - `Chosen Subs` must list the kept English subtitle streams, distinguishing regular vs forced when applicable
 - `Subtitle Default` must state which subtitle stream, if any, will be default
 - `Status` should be one of: `ready`, `ask`, `skip`, or `collision`
@@ -178,10 +186,13 @@ Recommended extra plan details:
 - If execution stops before any file is processed, output the `## Results Table` header with zero rows, then explain the blocker
 - Stop immediately on ambiguity, collision, plan drift, remux failure, or verification failure
 - Verify each written output with `ffprobe`
+- Compare source and output video HDR/Dolby Vision metadata before marking a file verified
 
 ## Verification requirements after remuxing
 
 - Video stream(s) are present
+- Video stream codec, profile, pixel format, color metadata, mastering display metadata, content light level metadata, HDR10+ dynamic metadata, and Dolby Vision side data/configuration match the source when present
+- HDR, HDR10+, and Dolby Vision metadata present in the source remains present in the output
 - Exactly one audio stream remains
 - The audio stream is English
 - No commentary audio remains
@@ -203,11 +214,16 @@ Stop and ask when any of the following occur:
 - Only an English forced subtitle exists and no regular English subtitle exists
 - Output file already exists and overwrite was not explicitly approved
 - Probe metadata is insufficient to make a safe decision
+- HDR or Dolby Vision metadata cannot be inspected reliably when the source appears to contain HDR or Dolby Vision
+- The output container or remux command may drop or alter HDR, HDR10+, or Dolby Vision metadata
+- Post-remux verification shows missing or changed HDR, HDR10+, or Dolby Vision metadata
 
 ## Command construction guidance
 
 - Use `ffmpeg` with explicit `-map` indexes chosen from probe results
 - Use `-c copy`
+- Do not use filters, re-encoding options, or metadata-stripping options on video streams
+- Do not change containers for HDR or Dolby Vision sources unless the target container is known to preserve the detected metadata
 - Set audio disposition explicitly
 - Set subtitle dispositions explicitly according to the subtitle rules above
 - Never rely on `-map 0:a:0` or language mapping alone when multiple English tracks could be present
