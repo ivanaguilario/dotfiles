@@ -14,6 +14,7 @@
 - Ask before performing destructive, external, or high-impact actions.
 - Always use an available skill when the task matches it.
 - Always use skills when possible.
+- Reply in english ONLY
 
 # Kubernetes
 - NEVER read Kubernetes secrets.
