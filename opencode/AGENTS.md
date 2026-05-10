@@ -24,6 +24,12 @@
 # Terraform / OpenTofu / Pulumi
 - NEVER plan or apply infrastructure changes unless explicitly allowed.
 - NEVER read state files of any kind unless explicitly allowed.
+- ALWAYS use the Terraform MCP to check provider/resource/data-source documentation and schemas before proposing Terraform or OpenTofu code.
+- Never rely on memory for provider arguments, resource names, data sources, attributes, or examples; verify them with the Terraform MCP first.
+
+# AWS
+- ALWAYS use the aws-knowledge MCP for AWS services, APIs, CloudFormation/CDK, architecture, troubleshooting, limits, and best-practice questions.
+- Never rely on memory for AWS behavior, resource availability, service APIs, IAM actions, CloudFormation/CDK properties, or configuration examples; verify with aws-knowledge first.
 
 # Git
 - Never commit any work.
