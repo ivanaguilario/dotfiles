@@ -1,5 +1,8 @@
 # AGENTS.md
 
+# CRITICAL
+* ALWAYS load skill and use the appropriate ones when planning / doing work.
+
 # General
 - NEVER read .env, .vault_password or any other files that contain credentials. Ask if unsure.
 - NEVER read any SSH or GPG private keys. Ask if unsure.
